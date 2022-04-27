@@ -1,0 +1,23 @@
+PODS:
+  - NavigationView (0.1.0):
+    - SnapKit
+  - SnapKit (5.6.0)
+
+DEPENDENCIES:
+  - NavigationView (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+
+EXTERNAL SOURCES:
+  NavigationView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  NavigationView: 9bb8b28b581180589414520415081287d160e687
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+
+PODFILE CHECKSUM: 6df8e94b42dc948936c484d27da487c6b618104c
+
+COCOAPODS: 1.11.3

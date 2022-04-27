@@ -1,0 +1,6 @@
+module NavigationView {
+  umbrella header "NavigationView-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,8 @@
+
+platform :ios, '10.0'
+
+use_modular_headers!
+
+target 'NavigationView_Example' do
+  pod 'NavigationView', :path => '../'
+end

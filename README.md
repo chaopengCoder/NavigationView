@@ -1,2 +1,29 @@
 # NavigationView
-自定义导航栏
+
+[![CI Status](https://img.shields.io/travis/cpcoder/NavigationView.svg?style=flat)](https://travis-ci.org/cpcoder/NavigationView)
+[![Version](https://img.shields.io/cocoapods/v/NavigationView.svg?style=flat)](https://cocoapods.org/pods/NavigationView)
+[![License](https://img.shields.io/cocoapods/l/NavigationView.svg?style=flat)](https://cocoapods.org/pods/NavigationView)
+[![Platform](https://img.shields.io/cocoapods/p/NavigationView.svg?style=flat)](https://cocoapods.org/pods/NavigationView)
+
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+NavigationView is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'NavigationView'
+```
+
+## Author
+
+cpcoder, chaopeng_coder@qq.com
+
+## License
+
+NavigationView is available under the MIT license. See the LICENSE file for more info.
