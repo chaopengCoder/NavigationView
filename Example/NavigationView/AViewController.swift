@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AViewController.swift
 //  NavigationView
 //
 //  Created by cpcoder on 04/26/2022.
@@ -13,7 +13,7 @@ let StatusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
 /// 导航栏高度: 状态栏高度 + 44
 let NavigationHeight: CGFloat = StatusBarHeight + 44
 
-class ViewController: UIViewController {
+class AViewController: UIViewController {
     
     fileprivate lazy var iMainTb: UITableView = {
         let tb = UITableView()
@@ -33,11 +33,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title("ViewController")
-        
+        setupSubviews()
+    }
+    
+    fileprivate func setupSubviews() {
+        title("AViewController")
         iNavigationView = navigationView()
-        iNavigationView?.backgroundColor = .orange
-        
         view.addSubview(iMainTb)
         iMainTb.snp.makeConstraints { (make) in
             make.top.equalTo(NavigationHeight)
@@ -52,7 +53,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension AViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         30
@@ -66,14 +67,15 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension AViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         navigationController?.pushViewController(BViewController(), animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        iNavigationView?.alpha = 1 - offsetY / 100.0
+//        let offsetY = scrollView.contentOffset.y
+//        iNavigationView?.alpha = 1 - offsetY / 100.0
     }
 }
 

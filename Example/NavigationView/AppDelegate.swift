@@ -17,12 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
-        window?.rootViewController = NavigationController(rootViewController: ViewController())
+        // 使用NavigationController初始化
+        window?.rootViewController = NavigationController(rootViewController: AViewController())
         window?.makeKeyAndVisible()
         
         NavigationManager.shared.configNavigation { (config) in
+            // 非必须, 默认black
             config.titleColor = .red
+            // 必须
             config.backImgName = "nav_btn_close_pre"
+            // 非必须, 默认UIFont.systemFont(ofSize: 15, weight: .medium)
             config.titleFont = .systemFont(ofSize: 20, weight: .bold)
         }
         

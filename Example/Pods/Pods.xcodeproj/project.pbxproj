@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0133321FF05B672F20C019F7D0BAA979 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19C3EFF53B18F6BB1F8B0F322722342 /* ConstraintAttributes.swift */; };
+		04286A64281A210E009295EA /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04286A63281A210E009295EA /* UIViewController+.swift */; };
 		04495A53E6144F5EDAC9C404562A4F3B /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A2E4F8CED9A5E3B40CE64E22A0383D /* ConstraintViewDSL.swift */; };
 		10FB8878EDC5A6EDA84BF6E789C20ACE /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B5A4101CB6DE22D66D4756D37D88D6 /* ConstraintPriorityTarget.swift */; };
 		12FFFC5C1390C7203529D64C8830FC73 /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D473EEE41F1F067AC12B1FCDCA6AFAC5 /* ConstraintLayoutGuideDSL.swift */; };
@@ -84,6 +85,7 @@
 /* Begin PBXFileReference section */
 		019537FA0EB9CCDD00FDA32FB8C4C37B /* Adapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Adapter.swift; path = NavigationView/Classes/Adapter.swift; sourceTree = "<group>"; };
 		025BBFAB39CF198807903F838E9652F0 /* ConstraintMakerPrioritizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPrioritizable.swift; path = Sources/ConstraintMakerPrioritizable.swift; sourceTree = "<group>"; };
+		04286A63281A210E009295EA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		06499ECE8E0164EF099D9CAFCC02E6F2 /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Sources/ConstraintMaker.swift; sourceTree = "<group>"; };
 		06765541763089112ED4724C0DD45F71 /* SnapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.release.xcconfig; sourceTree = "<group>"; };
 		0EC11CBC1F83251A57F20789FA793DE4 /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Sources/LayoutConstraintItem.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				B27FF616F248591D1C37E75FDEBD90B0 /* NavigationManager.swift */,
 				4E3A62ACEED24669D9E75674C1574B59 /* NavigationView.swift */,
 				241D3A23A25416FF16A8F6E514F904AF /* NavigationConfig.swift */,
+				04286A63281A210E009295EA /* UIViewController+.swift */,
 				90FCB9362E77A70F1E8B20609FF7C3A5 /* Pod */,
 				3D7FDC00607891550F3EE4716BD25DD8 /* Support Files */,
 			);
@@ -567,6 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04286A64281A210E009295EA /* UIViewController+.swift in Sources */,
 				EA83F8035593681D31B51CA8D1D1421A /* Adapter.swift in Sources */,
 				B89F9433E6A8396219F56A7C22ED9B2A /* NavigationController.swift in Sources */,
 				AE1BB8FB73EB9EFDDD93B72B125999A0 /* NavigationManager.swift in Sources */,
