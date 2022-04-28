@@ -60,7 +60,7 @@ extension AViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")!
         cell.textLabel?.text = "第\(indexPath.row)行"
         cell.accessoryType = .disclosureIndicator
         return cell
@@ -74,8 +74,8 @@ extension AViewController: UITableViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let offsetY = scrollView.contentOffset.y
-//        iNavigationView?.alpha = 1 - offsetY / 100.0
+        let offsetY = scrollView.contentOffset.y
+        iNavigationView?.alpha = 1 - offsetY / 100.0
     }
 }
 

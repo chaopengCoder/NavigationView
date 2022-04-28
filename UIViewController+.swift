@@ -25,7 +25,7 @@ extension UIViewController {
     ///
     /// - Returns: 导航栏
     @discardableResult
-    public func addNavigationView() -> NavigationView {
+    func addNavigationView() -> NavigationView {
         let naviView = NavigationView()
         view.addSubview(naviView)
         naviView.backgroundColor = .white

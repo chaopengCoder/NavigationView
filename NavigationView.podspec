@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NavigationView'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = '自定义系统导航条'
 
   s.description      = <<-DESC
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   
   s.source           = { :git => 'https://github.com/chaopengCoder/NavigationView.git', :tag => s.version.to_s }
   
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
   s.ios.deployment_target = '10.0'
   s.source_files = 'NavigationView/Classes/**/*'
   

@@ -22,7 +22,7 @@ public class NavigationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setTitle(_ title: String,
+    func setTitle(_ title: String,
                          font: UIFont,
                          textColor color: UIColor = .black) -> UILabel {
         let tag = 12313
@@ -48,7 +48,7 @@ public class NavigationView: UIView {
         return lb
     }
     
-    public func showBackButton(image: UIImage?) -> UIButton {
+    func showBackButton(image: UIImage?) -> UIButton {
         let tag = leftViewTags[0]
         if let btn = self.viewWithTag(tag) as? UIButton {
             btn.setImage(image, for: .normal)
@@ -68,7 +68,7 @@ public class NavigationView: UIView {
         return btn
     }
     
-    public func addRightBtn(image: UIImage? = nil, title: String? = nil) -> UIButton {
+    func addRightBtn(image: UIImage? = nil, title: String? = nil) -> UIButton {
         let btn = UIButton()
         addSubview(btn)
         btn.backgroundColor = .clear
