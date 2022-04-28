@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NavigationView'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = '自定义系统导航条'
 
   s.description      = <<-DESC
