@@ -57,9 +57,8 @@ title("")
 ```
 #### 或者
 ```swift
-addNavigationView()
 // 此方法返回一个NavigationView对象, 可用变量接收后添加自定义控件
-let naviView = addNavigationView()
+let naviView = navigationView()
 naviView.backgroundColor = .red
 ```
 #### 2. 左侧返回按钮的展示
@@ -75,6 +74,9 @@ showBackButton()
 // 方法1会如果不传参数会使用导航条配置中的返回按钮icon
 // 1.使用返回按钮的方法
 // 此方法返回一个UIButton对象, 可用变量接收后添加自定义编辑
+// 如果NavigationManager配置了返回按钮的icon名称 使用: 
+showBackButton()
+// 如果在当前页面返回icon有区别于配置的icon名称, 使用以下两种方法
 showBackButton(image: UIImage(named: "ex_image_name"))
 // 2.或者使用左侧按钮的方法
 // 此方法返回一个UIButton对象, 可用变量接收后添加自定义编辑
@@ -88,7 +90,7 @@ override func popViewController() {
 }
 ```
 
-#### 3. 有侧返回按钮的展示
+#### 3. 右侧返回按钮的展示
 #### 需要手动添加回调事件方法
 ```swift
 // 右侧按钮是一个icon
