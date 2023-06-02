@@ -5,87 +5,157 @@
 //  Created by CPCoder on 2022/4/26.
 //
 
-import SnapKit
-
 // MARK: - NavigationView
 
 public class NavigationView: UIView {
-    public static let TAG = 15241232
-    public var leftViewTags = [15241234, 15241235, 15241236]
+    static let kTag = 20180617
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        tag = NavigationView.TAG
+        tag = NavigationView.kTag
+        translatesAutoresizingMaskIntoConstraints = false
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func setTitle(_ title: String,
-                         font: UIFont,
-                         textColor color: UIColor = .black) -> UILabel {
-        let tag = 12313
-        if let label = self.viewWithTag(tag) as? UILabel {
+                  color: UIColor = .black,
+                  font: UIFont = .systemFont(ofSize: 18)) -> UILabel {
+        let tag = 201806
+        if let label = viewWithTag(tag) as? UILabel {
+            label.font = font
             label.text = title
             label.textColor = color
-            return label
         }
         
         let lb = UILabel()
-        addSubview(lb)
         lb.tag = tag
+        lb.font = font
         lb.text = title
         lb.textColor = color
         lb.textAlignment = .center
-        lb.font = font
-        lb.snp.makeConstraints({ (make) in
-            make.left.equalTo(120.px)
-            make.right.equalTo(-120.px)
-            make.bottom.equalToSuperview()
-            make.top.equalTo(StatusBarHeight)
-        })
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(lb)
+        
+        let centerX = NSLayoutConstraint(item: lb,
+                                         attribute: .centerX,
+                                         relatedBy: .equal,
+                                         toItem: self,
+                                         attribute: .centerX,
+                                         multiplier: 1,
+                                         constant: 0)
+        
+        let bottom = NSLayoutConstraint(item: lb,
+                                        attribute: .bottom,
+                                        relatedBy: .equal,
+                                        toItem: self,
+                                        attribute: .bottom,
+                                        multiplier: 1,
+                                        constant: -10)
+        
+        addConstraints([centerX, bottom])
         return lb
     }
     
-    func showBackButton(image: UIImage?) -> UIButton {
-        let tag = leftViewTags[0]
-        if let btn = self.viewWithTag(tag) as? UIButton {
+    func setBackButton(image: UIImage?) -> UIButton {
+        let tag = 201807
+        if let btn = viewWithTag(tag) as? UIButton {
             btn.setImage(image, for: .normal)
             return btn
         }
+        
         let btn = UIButton()
-        addSubview(btn)
         btn.tag = tag
         btn.backgroundColor = .clear
         btn.setImage(image, for: .normal)
-        btn.snp.makeConstraints({ (make) in
-            make.left.equalTo(20.px)
-            make.bottom.equalToSuperview()
-            make.top.equalTo(StatusBarHeight)
-            make.width.equalTo(btn.snp.height)
-        })
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(btn)
+        
+        let leftSpacing = NavigationManager.shared.config.leftSpacing
+        
+        let left = NSLayoutConstraint(item: btn,
+                                        attribute: .left,
+                                        relatedBy: .equal,
+                                        toItem: self,
+                                        attribute: .left,
+                                        multiplier: 1,
+                                        constant: leftSpacing)
+        
+        let bottom = NSLayoutConstraint(item: btn,
+                                        attribute: .bottom,
+                                        relatedBy: .equal,
+                                        toItem: self,
+                                        attribute: .bottom,
+                                        multiplier: 1,
+                                        constant: 0)
+        
+        let top = NSLayoutConstraint(item: btn,
+                                     attribute: .top,
+                                     relatedBy: .equal,
+                                     toItem: self,
+                                     attribute: .top,
+                                     multiplier: 1,
+                                     constant: StatusBarHeight)
+        
+        let width = NSLayoutConstraint(item: btn,
+                                        attribute: .width,
+                                        relatedBy: .equal,
+                                        toItem: btn,
+                                        attribute: .height,
+                                        multiplier: 1,
+                                        constant: 0)
+        
+        addConstraints([left, bottom, width, top])
         return btn
     }
     
-    func addRightBtn(image: UIImage? = nil, title: String? = nil) -> UIButton {
-        let btn = UIButton()
-        addSubview(btn)
-        btn.backgroundColor = .clear
-        btn.setImage(image, for: .normal)
-        btn.setTitle(title, for: .normal)
-        btn.setTitleColor(.black, for: .normal)
-        btn.titleLabel?.font = .systemFont(ofSize: 28.px, weight: .medium)
-        btn.snp.makeConstraints({ (make) in
-            make.right.equalTo(-26.px)
-            if let _ = title {
-                make.bottom.equalToSuperview()
-                make.top.equalTo(StatusBarHeight)
-            }
-            if let _ = image {
-                make.centerY.equalToSuperview().offset(StatusBarHeight / 2)
-            }
-        })
-        return btn
+    func setRightView() -> UIStackView {
+        let tag = 201808
+        if let view = viewWithTag(tag) as? UIStackView {
+            return view
+        }
+        
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.distribution = .fillEqually
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.spacing = NavigationManager.shared.config.rightViewItemsSpacing
+        addSubview(view)
+        
+        let rightSpacing = NavigationManager.shared.config.rightSpacing
+        
+        let right = NSLayoutConstraint(item: view,
+                                       attribute: .right,
+                                       relatedBy: .equal,
+                                       toItem: self,
+                                       attribute: .right,
+                                       multiplier: 1,
+                                       constant: -rightSpacing)
+        
+        
+        let size = NavigationManager.shared.config.rightViewItemsHeight
+        
+        let height = NSLayoutConstraint(item: view,
+                                        attribute: .height,
+                                        relatedBy: .equal,
+                                        toItem: nil,
+                                        attribute: .notAnAttribute,
+                                        multiplier: 1,
+                                        constant: size)
+        
+        let bottomSpacing = (NavigationBarHeight - size) / 2
+        
+        let bottom = NSLayoutConstraint(item: view,
+                                        attribute: .bottom,
+                                        relatedBy: .equal,
+                                        toItem: self,
+                                        attribute: .bottom,
+                                        multiplier: 1,
+                                        constant: -bottomSpacing)
+        
+        addConstraints([bottom, height, right])
+        return view
     }
 }

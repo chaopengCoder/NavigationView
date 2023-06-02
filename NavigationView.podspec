@@ -8,15 +8,15 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NavigationView'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = '自定义系统导航条'
 
   s.description      = <<-DESC
-  支持iOS 10+ 系统
+  支持iOS 11+ 系统
   支持Swift4.2+
+  导航条右侧支持多个按钮
   隐藏系统导航条
   使用自定义导航条
-  增加UINavigationController扩展
                        DESC
 
   s.homepage         = 'https://github.com/chaopengCoder/NavigationView'
@@ -26,8 +26,11 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/chaopengCoder/NavigationView.git', :tag => s.version.to_s }
   
   s.swift_version = '4.2'
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
   s.source_files = 'NavigationView/Classes/**/*'
   
-  s.dependency 'SnapKit'
+  s.resource_bundles = {
+      'NavigationView' => ['NavigationView/Assets/*']
+  }
+  
 end

@@ -24,21 +24,31 @@ pod 'NavigationView'
 
 ### 配置导航条
 ```swift
-NavigationManager.shared.configNavigation { (config) in
-    // 非必须, 默认black
-    config.titleColor = .red
-    // 必须
-    config.backImgName = "nav_btn_close_pre"
-    // 非必须, 默认UIFont.systemFont(ofSize: 15, weight: .medium)
-    config.titleFont = .systemFont(ofSize: 20, weight: .bold)
+// 全局导航配置, 都有默认值
+NavigationManager.shared.configNavigation { config in
+    /// 后退按钮图片名称，默认："nav_btn_close_pre"
+    config.backImageName = "nav_btn_close_pre"
+    /// 左键到屏幕的距离，默认：8 pt
+    config.leftSpacing = 8
+    /// 右视图到屏幕的距离，默认：8 pt
+    config.rightSpacing = 8
+    /// 标题颜色，默认：UIColor.black
+    config.titleColor = UIColor.black
+    /// 背景色，默认：UIColor.clear
+    config.backgaroundColor = UIColor.clear
+    /// 右侧每一项的高度，默认：30 pt
+    config.rightViewItemsHeight = 30
+    /// 右侧有多个项目时项目之间的间距，默认：10 pt
+    config.rightViewItemsSpacing = 10
+    /// 标题字体，默认：UIFont.systemFont(ofSize: 15, weight: .medium)
+    config.titleFont = UIFont.systemFont(ofSize: 15, weight: .medium)
 }
 ```
 ### 初始化导航控制器
 ```swift
 window = UIWindow(frame: UIScreen.main.bounds)
 window?.backgroundColor = .white
-//注意: 使用NavigationController初始化
-window?.rootViewController = NavigationController(rootViewController: AViewController())
+window?.rootViewController = UINavigationController(rootViewController: AViewController())
 window?.makeKeyAndVisible()
 ```
 
@@ -82,7 +92,7 @@ showBackButton(image: UIImage(named: "ex_image_name"))
 // 此方法返回一个UIButton对象, 可用变量接收后添加自定义编辑
 showLeftButton(image: UIImage(named: "ex_image_name"))
 ```
-#### 补充: 返回(左侧)按钮的事件, 按需重写
+#### 补充: 返回(左侧)按钮的事件, 在UIViewController中按需重写
 ```swift
 override func popViewController() {
     super.popViewController()

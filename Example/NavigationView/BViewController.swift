@@ -10,6 +10,26 @@ import Foundation
 
 class BViewController: UIViewController {
     
+    fileprivate lazy var iSortBtn: UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = .green
+        btn.addTarget(self, action: #selector(sortAction), for: .touchUpInside)
+        return btn
+    }()
+    
+    fileprivate lazy var iCollectBtn: UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = .blue
+        btn.addTarget(self, action: #selector(collectionAction), for: .touchUpInside)
+        return btn
+    }()
+    
+    fileprivate lazy var iOtherBtn: UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = .blue
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
@@ -19,17 +39,25 @@ class BViewController: UIViewController {
         view.backgroundColor = .red
         title("BViewController")
         showBackButton()
-        let rightTitleBtn = addRightBtn(title: "右侧按钮")
-        rightTitleBtn.addTarget(self, action: #selector(rightBtnAction), for: .touchUpInside)
+        
+        let naviRightview = showRightView()
+        
+        naviRightview.addArrangedSubview(iSortBtn)
+        naviRightview.addArrangedSubview(iCollectBtn)
     }
     
-    // 导航条右侧按钮事件
-    @objc fileprivate func rightBtnAction() {
-        print("出发导航栏右侧按钮事件")
+    /// sort action
+    @objc fileprivate func sortAction() {
+        print("Sorted")
+    }
+    
+    /// collection action
+    @objc fileprivate func collectionAction() {
+        print("Collected")
     }
     
     override func popViewController() {
         super.popViewController()
-        print("返回上个页面")
+        print("Pop View Controller")
     }
 }

@@ -1,10 +1,10 @@
 PODS:
-  - NavigationView (1.0.0):
-    - SnapKit
+  - NavigationView (1.0.2)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - NavigationView (from `../`)
+  - SnapKit
 
 SPEC REPOS:
   trunk:
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  NavigationView: 43926e1ca65bdfe1e5bcf93f90e1e3b164f01f13
+  NavigationView: 26b14cc387c1ddf0000b2fd7d31c7a58a96ab6e8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 6df8e94b42dc948936c484d27da487c6b618104c
+PODFILE CHECKSUM: ff758efe17fb54843acfbd051bb1bdd809197737
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1

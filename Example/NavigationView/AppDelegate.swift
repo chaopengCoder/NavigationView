@@ -18,43 +18,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         // 使用NavigationController初始化
-        window?.rootViewController = NavigationController(rootViewController: AViewController())
+        window?.rootViewController = UINavigationController(rootViewController: AViewController())
         window?.makeKeyAndVisible()
-        
-        NavigationManager.shared.configNavigation { (config) in
-            // 非必须, 默认black
-            config.titleColor = .red
-            // 必须
-            config.backImgName = "nav_btn_close_pre"
-            // 非必须, 默认UIFont.systemFont(ofSize: 15, weight: .medium)
-            config.titleFont = .systemFont(ofSize: 20, weight: .bold)
+
+        // 全局导航配置, 都有默认值
+        NavigationManager.shared.configNavigation { config in
+            /// 后退按钮图片名称，默认："nav_btn_close_pre"
+            config.backImageName = "nav_btn_close_pre"
+            /// 左键到屏幕的距离，默认：8 pt
+            config.leftSpacing = 8
+            /// 右视图到屏幕的距离，默认：8 pt
+            config.rightSpacing = 8
+            /// 标题颜色，默认：UIColor.black
+            config.titleColor = UIColor.black
+            /// 背景色，默认：UIColor.clear
+            config.backgaroundColor = UIColor.clear
+            /// 右侧每一项的高度，默认：30 pt
+            config.rightViewItemsHeight = 30
+            /// 右侧有多个项目时项目之间的间距，默认：10 pt
+            config.rightViewItemsSpacing = 10
+            /// 标题字体，默认：UIFont.systemFont(ofSize: 15, weight: .medium)
+            config.titleFont = UIFont.systemFont(ofSize: 15, weight: .medium)
         }
         
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
 }
+
+
 

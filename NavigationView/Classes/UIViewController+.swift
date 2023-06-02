@@ -9,76 +9,103 @@ import Foundation
 
 extension UIViewController {
     
-    /// 获取导航栏是否存在，不存在就添加导航栏
+    /// Check the NavigationView, Create NavigationView if not exist
     ///
-    /// - Returns: 导航栏
+    /// - Returns: NavigationView
     @discardableResult
     public func navigationView() -> NavigationView {
-        var view = self.view.viewWithTag(NavigationView.TAG) as? NavigationView
+        var view = self.view.viewWithTag(NavigationView.kTag) as? NavigationView
         if view == nil {
             view = addNavigationView()
         }
         return view!
     }
     
-    /// 添加导航栏控件
+    /// Add NavigationBar to UIViewController instance
     ///
-    /// - Returns: 导航栏
+    /// - Returns: NavigationView
     @discardableResult
     func addNavigationView() -> NavigationView {
         let naviView = NavigationView()
         view.addSubview(naviView)
-        naviView.backgroundColor = .white
-        naviView.snp.makeConstraints { (make) in
-            make.left.right.top.equalTo(0)
-            make.height.equalTo(NavigationHeight)
-        }
+        naviView.backgroundColor = NavigationManager.shared.config.backgaroundColor
+        let left = NSLayoutConstraint(item: naviView,
+                                      attribute: .left,
+                                      relatedBy: .equal,
+                                      toItem: view,
+                                      attribute: .left,
+                                      multiplier: 1,
+                                      constant: 0)
+        
+        let right = NSLayoutConstraint(item: naviView,
+                                      attribute: .right,
+                                      relatedBy: .equal,
+                                      toItem: view,
+                                      attribute: .right,
+                                      multiplier: 1,
+                                      constant: 0)
+        
+        let top = NSLayoutConstraint(item: naviView,
+                                      attribute: .top,
+                                      relatedBy: .equal,
+                                      toItem: view,
+                                      attribute: .top,
+                                      multiplier: 1,
+                                      constant: 0)
+        
+        let height = NSLayoutConstraint(item: naviView,
+                                        attribute: .height,
+                                        relatedBy: .equal,
+                                        toItem: nil,
+                                        attribute: .notAnAttribute,
+                                        multiplier: 1,
+                                        constant: NavigationHeight)
+        
+        view.addConstraints([right, left, top, height])
         return naviView
     }
     
-    /// 设置导航栏标题
+    /// Set NavigationBar's title
     ///
-    /// - Parameter title: 标题
-    /// - Returns: 导航栏
+    /// - Parameter title: title content
+    /// - Returns: UILabel instance
     @discardableResult
     public func `title`(_ title: String) -> UILabel {
         let naviView = navigationView()
         let config = NavigationManager.shared.config
-        return naviView.setTitle(title, font: config.titleFont, textColor: config.titleColor)
+        return naviView.setTitle(title,
+                                 color: config.titleColor,
+                                 font: config.titleFont)
     }
     
-    /// 显示返回按钮
-    ///
-    /// - Returns: 按钮
+    /// Set return button for NavigationBar
+    /// - Parameter image: image instance for button,  default is 'btn_return'
+    /// - Returns: UIButton instance
     @discardableResult
     public func showBackButton(image: UIImage? = nil) -> UIButton {
         let config = NavigationManager.shared.config
+        
+        var img = image
         if image == nil {
-            config.check()
+            img = UIImage(named: config.backImageName)
+            if img == nil {
+                img = UIImage.make(named: "nav_btn_close_pre")
+            }
         }
-        let button = showLeftButton(image: image ?? UIImage(named: config.backImgName))
+        
+        let naviView = navigationView()
+        let button = naviView.setBackButton(image: img)
         button.addTarget(self, action: #selector(popViewController), for: .touchUpInside)
         return button
     }
     
-    /// 显示左上角按钮
-    ///
-    /// - Parameter image: 按钮图片
-    /// - Returns: 按钮
     @discardableResult
-    public func showLeftButton(image: UIImage?) -> UIButton {
+    public func showRightView() -> UIStackView {
         let naviView = navigationView()
-        let button = naviView.showBackButton(image: image)
-        return button
+        return naviView.setRightView()
     }
     
-    @discardableResult
-    public func addRightBtn(image: UIImage? = nil, title: String? = nil) -> UIButton {
-        let naviView = navigationView()
-        return naviView.addRightBtn(image: image, title: title)
-    }
-    
-    /// 返回上一页
+    /// Go back
     @objc open func popViewController() {
         let vc = navigationController?.popViewController(animated: true)
         if vc == nil {

@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import SnapKit
 
-/// 状态栏高度
+/// StatusBar height
 let StatusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
-/// 导航栏高度: 状态栏高度 + 44
+/// NavigationView height = Status Bar's height + 44
 let NavigationHeight: CGFloat = StatusBarHeight + 44
 
 class AViewController: UIViewController {
@@ -23,17 +24,13 @@ class AViewController: UIViewController {
         return tb
     }()
     
-    fileprivate lazy var iHeaderView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
-    }()
-    
     fileprivate var iNavigationView: NavigationView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
+        // Set navigationbar hidden once
+        navigationController?.isNavigationBarHidden = true
     }
     
     fileprivate func setupSubviews() {
@@ -44,24 +41,18 @@ class AViewController: UIViewController {
             make.top.equalTo(NavigationHeight)
             make.left.right.bottom.equalToSuperview()
         }
-        
-        iMainTb.tableHeaderView = iHeaderView
-        iHeaderView.snp.makeConstraints { (make) in
-            make.height.equalTo(100)
-            make.width.equalToSuperview()
-        }
     }
 }
 
 extension AViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        30
+        1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")!
-        cell.textLabel?.text = "第\(indexPath.row)行"
+        cell.textLabel?.text = "Click to push BViewController"
         cell.accessoryType = .disclosureIndicator
         return cell
     }
