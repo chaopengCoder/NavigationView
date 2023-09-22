@@ -39,7 +39,7 @@ class BViewController: UIViewController {
         view.backgroundColor = .red
         title("BViewController")
         showBackButton()
-        
+        showBackImage()
         let naviRightview = showRightView()
         
         naviRightview.addArrangedSubview(iSortBtn)

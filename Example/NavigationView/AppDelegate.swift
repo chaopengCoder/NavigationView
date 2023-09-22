@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             config.rightViewItemsSpacing = 10
             /// 标题字体，默认：UIFont.systemFont(ofSize: 15, weight: .medium)
             config.titleFont = UIFont.systemFont(ofSize: 15, weight: .medium)
+            config.backgroundImageName = "search_view_bg"
         }
         
         return true

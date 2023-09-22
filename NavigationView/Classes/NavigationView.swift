@@ -20,6 +20,54 @@ public class NavigationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setBackgroundImage(image: UIImage?) -> UIImageView {
+        let tag = 201805
+        if let iv = viewWithTag(tag) as? UIImageView {
+            iv.image = image
+        }
+        
+        let iBackgroundIv = UIImageView()
+        iBackgroundIv.image = image
+        iBackgroundIv.clipsToBounds = true
+        iBackgroundIv.contentMode = .scaleAspectFill
+        iBackgroundIv.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(iBackgroundIv)
+        let top = NSLayoutConstraint(item: iBackgroundIv,
+                                         attribute: .top,
+                                         relatedBy: .equal,
+                                         toItem: self,
+                                         attribute: .top,
+                                         multiplier: 1,
+                                         constant: 0)
+        
+        let bottom = NSLayoutConstraint(item: iBackgroundIv,
+                                        attribute: .bottom,
+                                        relatedBy: .equal,
+                                        toItem: self,
+                                        attribute: .bottom,
+                                        multiplier: 1,
+                                        constant: 0)
+        
+        let left = NSLayoutConstraint(item: iBackgroundIv,
+                                        attribute: .left,
+                                        relatedBy: .equal,
+                                        toItem: self,
+                                        attribute: .left,
+                                        multiplier: 1,
+                                        constant: 0)
+        
+        let right = NSLayoutConstraint(item: iBackgroundIv,
+                                        attribute: .right,
+                                        relatedBy: .equal,
+                                        toItem: self,
+                                        attribute: .right,
+                                        multiplier: 1,
+                                        constant: 0)
+        addConstraints([top, bottom, left, right])
+        sendSubviewToBack(iBackgroundIv)
+        return iBackgroundIv
+    }
+    
     func setTitle(_ title: String,
                   color: UIColor = .black,
                   font: UIFont = .systemFont(ofSize: 18)) -> UILabel {

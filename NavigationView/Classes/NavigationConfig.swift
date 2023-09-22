@@ -9,6 +9,8 @@ import Foundation
 
 public class NavigationConfig {
     
+    /// The name of background image, Default: ""
+    public var backgroundImageName = ""
     /// The name of back button image, Default: "nav_btn_close_pre"
     public var backImageName = "nav_btn_close_pre"
     /// The distance from the left button to the screen, Default: 8 pt

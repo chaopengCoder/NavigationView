@@ -78,11 +78,30 @@ extension UIViewController {
                                  font: config.titleFont)
     }
     
+    /// Set background image for NavigationBar
+    /// - Parameter image: image instance for UIImageView
+    /// - Returns: UIImageView instance
+    @discardableResult
+    public func showBackImage(_ image: UIImage? = nil) -> UIImageView {
+        let config = NavigationManager.shared.config
+        
+        var img: UIImage?
+        if let image = image {
+            img = image
+        } else {
+            img = UIImage(named: config.backgroundImageName)
+        }
+        
+        let naviView = navigationView()
+        let imageView = naviView.setBackgroundImage(image: img)
+        return imageView
+    }
+    
     /// Set return button for NavigationBar
     /// - Parameter image: image instance for button,  default is 'btn_return'
     /// - Returns: UIButton instance
     @discardableResult
-    public func showBackButton(image: UIImage? = nil) -> UIButton {
+    public func showBackButton(_ image: UIImage? = nil) -> UIButton {
         let config = NavigationManager.shared.config
         
         var img = image
