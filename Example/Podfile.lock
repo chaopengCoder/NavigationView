@@ -1,5 +1,5 @@
 PODS:
-  - NavigationView (1.0.2)
+  - NavigationView (1.1.1)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  NavigationView: 963f20e323cd0d0148d39f3414a28ba9593719fd
+  NavigationView: 56e71525f32c93fe8c9bbe1ebd260d0336d961ca
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
 PODFILE CHECKSUM: 243ae129a6e4c9bb01c35bd64f295936aecde73d

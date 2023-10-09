@@ -103,7 +103,23 @@ public class NavigationView: UIView {
                                         multiplier: 1,
                                         constant: -10)
         
-        addConstraints([centerX, bottom])
+        let left = NSLayoutConstraint(item: lb,
+                                      attribute: .leading,
+                                      relatedBy: .equal,
+                                      toItem: self,
+                                      attribute: .leading,
+                                      multiplier: 1,
+                                      constant: 80)
+        
+        let right = NSLayoutConstraint(item: lb,
+                                       attribute: .trailing,
+                                       relatedBy: .equal,
+                                       toItem: self,
+                                       attribute: .trailing,
+                                       multiplier: 1,
+                                       constant: -80)
+        
+        addConstraints([centerX, bottom, left, right])
         return lb
     }
     

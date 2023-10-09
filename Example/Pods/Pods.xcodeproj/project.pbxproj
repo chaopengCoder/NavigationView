@@ -789,6 +789,32 @@
 			};
 			name = Release;
 		};
+		65AD3669B277B6B3CFA562A78729BD76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14F820EF4992222BEC35CADA325D13D2 /* NavigationView.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/NavigationView/NavigationView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MODULEMAP_FILE = Headers/Public/NavigationView/NavigationView.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = NavigationView;
+				PRODUCT_NAME = NavigationView;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		6A30B8A84F950078D86FA4B5397C3AFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14F820EF4992222BEC35CADA325D13D2 /* NavigationView.debug.xcconfig */;
@@ -820,33 +846,6 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		A884BB84E2FC88516B574EBED43F1665 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1222938B9843D1872547DF9F43C1D6B2 /* NavigationView.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/NavigationView/NavigationView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MODULEMAP_FILE = Headers/Public/NavigationView/NavigationView.modulemap;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = NavigationView;
-				PRODUCT_NAME = NavigationView;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -926,6 +925,33 @@
 			};
 			name = Debug;
 		};
+		E10FA64FCB6CAC0B91D30DB1EE91A2D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1222938B9843D1872547DF9F43C1D6B2 /* NavigationView.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/NavigationView/NavigationView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MODULEMAP_FILE = Headers/Public/NavigationView/NavigationView.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = NavigationView;
+				PRODUCT_NAME = NavigationView;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		F17D98B9289B689A8C127D094D40EA87 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 403289A4A183B07F3858E9F49DCA4F7B /* Pods-NavigationView_Example.release.xcconfig */;
@@ -949,32 +975,6 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		F1C86DEEF7E1F92B1FF5C263060D3AFC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14F820EF4992222BEC35CADA325D13D2 /* NavigationView.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/NavigationView/NavigationView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MODULEMAP_FILE = Headers/Public/NavigationView/NavigationView.modulemap;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = NavigationView;
-				PRODUCT_NAME = NavigationView;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1000,8 +1000,8 @@
 		C76312D8B13C173446A7ECAB03DA805A /* Build configuration list for PBXNativeTarget "NavigationView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1C86DEEF7E1F92B1FF5C263060D3AFC /* Debug */,
-				A884BB84E2FC88516B574EBED43F1665 /* Release */,
+				65AD3669B277B6B3CFA562A78729BD76 /* Debug */,
+				E10FA64FCB6CAC0B91D30DB1EE91A2D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
