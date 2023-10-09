@@ -9,12 +9,7 @@ import Foundation
 
 /// StatusBar height
 var StatusBarHeight: CGFloat {
-    if #available(iOS 13.0, *) {
-        let h = UIApplication.shared.windows.first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 40
-        return h
-    } else {
-        return UIApplication.shared.statusBarFrame.size.height
-    }
+    return UIApplication.shared.statusBarFrame.size.height
 }
 
 /// NavigationBar height
